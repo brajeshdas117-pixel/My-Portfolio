@@ -5,41 +5,123 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-[#070a0f] text-white">
       {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#070a0f]/80 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <a href="#" className="text-xl font-bold tracking-tight">
-            Brajesh Das<span className="text-cyan-400">.</span>
+<header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#070a0f]/80 backdrop-blur-xl">
+  <nav className="mx-auto max-w-6xl px-6 py-5">
+
+    <div className="flex items-center justify-between">
+
+      {/* Logo */}
+      <a href="#" className="text-xl font-bold tracking-tight">
+        Brajesh Das<span className="text-cyan-400">.</span>
+      </a>
+
+      {/* Desktop Navigation */}
+      <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+        <a
+          href="#about"
+          className="transition hover:text-white"
+        >
+          About
+        </a>
+
+        <a
+          href="#skills"
+          className="transition hover:text-white"
+        >
+          Skills
+        </a>
+
+        <a
+          href="#projects"
+          className="transition hover:text-white"
+        >
+          Projects
+        </a>
+
+        <a
+          href="#experience"
+          className="transition hover:text-white"
+        >
+          Experience
+        </a>
+
+        <a
+          href="#contact"
+          className="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400/20"
+        >
+          Contact
+        </a>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        type="button"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-400 md:hidden"
+        aria-label="Toggle navigation menu"
+      >
+        {isMenuOpen ? "✕" : "☰"}
+      </button>
+
+    </div>
+
+    {/* Mobile Navigation */}
+    {isMenuOpen && (
+      <div className="mt-5 rounded-2xl border border-white/10 bg-[#0b0f16] p-4 md:hidden">
+
+        <div className="flex flex-col gap-2">
+
+          <a
+            href="#about"
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-xl px-4 py-3 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            About
           </a>
 
-          <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-            <a href="#about" className="transition hover:text-white">
-              About
-            </a>
+          <a
+            href="#skills"
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-xl px-4 py-3 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            Skills
+          </a>
 
-            <a href="#skills" className="transition hover:text-white">
-              Skills
-            </a>
+          <a
+            href="#projects"
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-xl px-4 py-3 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            Projects
+          </a>
 
-            <a href="#projects" className="transition hover:text-white">
-              Projects
-            </a>
-
-            <a href="#experience" className="transition hover:text-white">
-              Experience
-            </a>
-          </div>
+          <a
+            href="#experience"
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-xl px-4 py-3 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+          >
+            Experience
+          </a>
 
           <a
             href="#contact"
-            className="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400/20"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-2 rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-4 py-3 text-center text-sm font-medium text-cyan-300 transition hover:bg-cyan-400/20"
           >
             Contact
           </a>
-        </nav>
-      </header>
+
+        </div>
+
+      </div>
+    )}
+
+  </nav>
+</header>
 
       {/* Hero */}
       <main>
@@ -249,11 +331,11 @@ function App() {
 
           {/* Tech Highlights */}
 
-          <div className="mt-8 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-5">
+          <div className="mt-8 flex max-w-3xl overflow-x-auto rounded-2xl border border-white/10 bg-white/10">
             {["Python", "Django", "React", "FastAPI", "Database"].map((tech) => (
               <div
                 key={tech}
-                className="bg-[#0b0f16] px-6 py-5 text-center text-sm font-medium text-slate-300 transition hover:bg-cyan-400/10 hover:text-cyan-300"
+                className="min-w-[150px] flex-1 shrink-0 bg-[#0b0f16] px-6 py-5 text-center text-sm font-medium text-slate-300 transition hover:bg-cyan-400/10 hover:text-cyan-300"
               >
                 {tech}
               </div>
@@ -590,20 +672,13 @@ function App() {
       </div>
 
       <div className="mt-7 flex gap-4">
-        <a
-          href="#"
-          className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-        >
-          GitHub ↗
-        </a>
-
-        <a
-          href="#"
-          className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
-        >
-          Details
-        </a>
-      </div>
+      <a
+    href="#"
+    className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
+  >
+    Details
+  </a>
+</div>
     </div>
 
     {/* Project 2 */}
@@ -650,7 +725,7 @@ function App() {
 
       <div className="mt-7 flex gap-4">
         <a
-          href="#"
+          href="https://github.com/brajeshdas117-pixel/crm-ai-assignment"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
@@ -708,7 +783,7 @@ function App() {
 
       <div className="mt-7 flex gap-4">
         <a
-          href="#"
+          href="https://github.com/brajeshdas117-pixel/tatkalpro-smart-booking-assistant"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
@@ -733,7 +808,7 @@ function App() {
           </p>
 
           <h3 className="mt-2 text-2xl font-semibold">
-            Smart Job Portal & ATS Resume Analyzer
+            Health Voice AI
           </h3>
         </div>
 
@@ -743,19 +818,19 @@ function App() {
       </div>
 
       <p className="mt-5 leading-7 text-slate-400">
-        A smart job portal concept that analyzes resumes against job
-        requirements and helps users understand their skill matching
-        and application readiness.
+        A conversational AI health screening application that enables users to interact through voice, answer screening questions, and receive intelligent, 
+        context-aware responses through an AI-powered workflow.
+
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
         {[
-          "Python",
-          "Django",
           "React",
+          "Vite",
+          "JavaScript",
+          "Node.js",
+          "Groq",
           "REST API",
-          "AI",
-          "MySQL",
         ].map((tech) => (
           <span
             key={tech}
@@ -768,7 +843,7 @@ function App() {
 
       <div className="mt-7 flex gap-4">
         <a
-          href="#"
+          href="https://github.com/brajeshdas117-pixel/health-voice-ai"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
@@ -1261,8 +1336,71 @@ function App() {
 
   </div>
 </section>
-     
-  </main>
+
+
+
+
+{/* Footer */}
+<footer className="border-t border-white/10 bg-[#070a0f]">
+  <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
+
+    {/* Brand */}
+    <div>
+      <a
+        href="#"
+        className="text-lg font-bold tracking-tight text-white"
+      >
+        Brajesh Das<span className="text-cyan-400">.</span>
+      </a>
+
+      <p className="mt-2 text-sm text-slate-500">
+        Building practical applications with code & creativity.
+      </p>
+    </div>
+
+    {/* Social Links */}
+    <div className="flex items-center gap-5 text-sm text-slate-400">
+      <a
+        href="https://github.com/brajeshdas117-pixel"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:text-cyan-400"
+      >
+        GitHub ↗
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/brajesh-das-b9b9402b9/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:text-cyan-400"
+      >
+        LinkedIn ↗
+      </a>
+    </div>
+
+  </div>
+
+  {/* Bottom Bar */}
+  <div className="border-t border-white/10">
+    <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-5 text-center text-xs text-slate-600 md:flex-row md:items-center md:justify-between md:text-left">
+
+      <p>
+        © 2026 Brajesh Das. All rights reserved.
+      </p>
+
+      <a
+        href="#"
+        className="transition hover:text-cyan-400"
+      >
+        Back to top ↑
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+      </main>
   </div>
   );
 }
