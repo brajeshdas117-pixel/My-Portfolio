@@ -1,5 +1,5 @@
 import profileImage from "./assets/profile.jpeg";
-import { useState } from "react"
+import { useState } from "react";
 
 function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -161,6 +161,14 @@ function App() {
                   </a>
 
                   <a
+                    href="/resume.pdf"
+                    download
+                    className="rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-white transition hover:border-cyan-400/40 hover:bg-cyan-400/10"
+                  >
+                    Download Resume ↓
+                  </a>
+
+                  <a
                     href="#contact"
                     className="rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-white transition hover:bg-white/10"
                   >
@@ -265,7 +273,7 @@ function App() {
                 </p>
 
                 <p className="mt-3 text-sm text-cyan-400">
-                  CGPA 8.26
+                  CGPA 8.26 / 10
                 </p>
               </div>
 
@@ -312,74 +320,73 @@ function App() {
         </section>
 
         {/* Skills Section */}
-        <section
-          id="skills"
-          className="mx-auto max-w-6xl px-6 py-32"
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-            Skills
-          </p>
+<section
+  id="skills"
+  className="mx-auto max-w-6xl px-6 py-32"
+>
+  <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+    Skills
+  </p>
 
-          <h2 className="mt-4 text-4xl font-bold tracking-tight">
-            My toolkit.
-          </h2>
+  <h2 className="mt-4 text-4xl font-bold tracking-tight">
+    My toolkit.
+  </h2>
 
-          <p className="mt-5 max-w-2xl leading-8 text-slate-400">
-            A structured overview of the technologies, development skills,
-            computer science fundamentals, and tools I use to build software.
-          </p>
+  <p className="mt-5 max-w-2xl leading-8 text-slate-400">
+    A structured overview of the technologies, development skills,
+    computer science fundamentals, and tools I use to build software.
+  </p>
 
-          {/* Tech Highlights */}
+  {/* Tech Highlights */}
+  <div className="mt-8 flex max-w-3xl overflow-x-auto rounded-2xl border border-white/10 bg-white/10">
+    {["Python", "Django", "React", "FastAPI", "Database"].map((tech) => (
+      <div
+        key={tech}
+        className="min-w-[150px] flex-1 shrink-0 bg-[#0b0f16] px-6 py-5 text-center text-sm font-medium text-slate-300 transition hover:bg-cyan-400/10 hover:text-cyan-300"
+      >
+        {tech}
+      </div>
+    ))}
+  </div>
 
-          <div className="mt-8 flex max-w-3xl overflow-x-auto rounded-2xl border border-white/10 bg-white/10">
-            {["Python", "Django", "React", "FastAPI", "Database"].map((tech) => (
-              <div
-                key={tech}
-                className="min-w-[150px] flex-1 shrink-0 bg-[#0b0f16] px-6 py-5 text-center text-sm font-medium text-slate-300 transition hover:bg-cyan-400/10 hover:text-cyan-300"
-              >
-                {tech}
-              </div>
-            ))}
+  {/* Skills Tree */}
+  <div className="relative mt-16 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-10">
+
+    {/* Background Glow */}
+    <div className="pointer-events-none absolute left-1/2 top-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[100px]" />
+
+    {/* Root Node */}
+    <div className="relative z-10 flex justify-center">
+      <div className="rounded-2xl border border-cyan-400/40 bg-cyan-400/10 px-8 py-4 text-center shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+        <p className="text-xs uppercase tracking-[0.25em] text-cyan-400">
+          My Skills
+        </p>
+
+        <h3 className="mt-1 text-xl font-bold text-white">
+          Software Development
+        </h3>
+      </div>
+    </div>
+
+    {/* Main Tree Connector */}
+    <div className="mx-auto mt-0 h-12 w-px bg-cyan-400/30" />
+
+    {/* Main Branch */}
+    <div className="relative">
+      <div className="absolute left-1/2 top-0 hidden h-px w-[72%] -translate-x-1/2 bg-cyan-400/20 md:block" />
+
+      <div className="grid gap-8 md:grid-cols-3">
+
+        {/* Development Branch */}
+        <div className="relative">
+          <div className="mb-6 flex justify-center">
+            <div className="relative z-10 flex h-4 w-4 items-center justify-center rounded-full border-2 border-cyan-400 bg-[#070a0f]">
+              <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+            </div>
           </div>
 
-          {/* Skills Tree */}
-          <div className="relative mt-16 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-10">
-
-            {/* Background Glow */}
-            <div className="pointer-events-none absolute left-1/2 top-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[100px]" />
-
-            {/* Root Node */}
-            <div className="relative z-10 flex justify-center">
-              <div className="rounded-2xl border border-cyan-400/40 bg-cyan-400/10 px-8 py-4 text-center shadow-[0_0_30px_rgba(34,211,238,0.08)]">
-                <p className="text-xs uppercase tracking-[0.25em] text-cyan-400">
-                  My Skills
-                </p>
-
-                <h3 className="mt-1 text-xl font-bold text-white">
-                  Software Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Main Tree Connector */}
-            <div className="mx-auto mt-0 h-12 w-px bg-cyan-400/30" />
-
-            {/* Main Branch */}
-            <div className="relative">
-              <div className="absolute left-1/2 top-0 hidden h-px w-[72%] -translate-x-1/2 bg-cyan-400/20 md:block" />
-
-              <div className="grid gap-8 md:grid-cols-3">
-
-              {/* Development Branch */}
-
-                <div className="relative">
-                  <div className="mb-6 flex justify-center">
-                    <div className="relative z-10 flex h-4 w-4 items-center justify-center rounded-full border-2 border-cyan-400 bg-[#070a0f]">
-                      <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    </div>
-                  </div>
-
           <div className="relative rounded-2xl border border-white/10 bg-[#0b0f16] p-6 transition duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.06)]">
+
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400">
                 Branch 01
@@ -442,7 +449,7 @@ function App() {
             {/* Database */}
             <div className="mt-6 border-l border-cyan-400/20 pl-5">
               <h4 className="text-sm font-semibold text-white">
-                Database & libraries
+                Databases & Libraries
               </h4>
 
               <div className="mt-3 flex flex-wrap gap-2">
@@ -451,7 +458,7 @@ function App() {
                   "SQL",
                   "SQLAlchemy",
                   "Pandas",
-                  "NumPy"
+                  "NumPy",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -462,6 +469,7 @@ function App() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
 
@@ -474,6 +482,7 @@ function App() {
           </div>
 
           <div className="relative rounded-2xl border border-white/10 bg-[#0b0f16] p-6 transition duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.06)]">
+
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400">
                 Branch 02
@@ -517,7 +526,7 @@ function App() {
                 {[
                   "Python",
                   "JavaScript",
-                  "MATLAB",
+                
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -528,6 +537,7 @@ function App() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
 
@@ -540,6 +550,7 @@ function App() {
           </div>
 
           <div className="relative rounded-2xl border border-white/10 bg-[#0b0f16] p-6 transition duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.06)]">
+
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400">
                 Branch 03
@@ -563,7 +574,6 @@ function App() {
                   "DBMS",
                   "Operating Systems",
                   "Computer Networks",
-                  "System Design",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -588,7 +598,7 @@ function App() {
                   "VS Code",
                   "Postman",
                   "REST API",
-                  "Linux / Terminal",
+                  "Terminal",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -599,6 +609,7 @@ function App() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
 
@@ -607,53 +618,58 @@ function App() {
   </div>
 </section>
 
-      {/* Projects */}
-
+      {/* Projects Section */}
 <section
   id="projects"
   className="mx-auto max-w-6xl px-6 py-32"
 >
-  <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-    Projects
-  </p>
+  {/* Section Header */}
+  <div className="max-w-3xl">
+    <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+      Projects
+    </p>
 
-  <h2 className="mt-4 text-4xl font-bold tracking-tight">
-    Things I've built.
-  </h2>
+    <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+      Things I've built.
+    </h2>
 
-  <p className="mt-5 max-w-2xl leading-8 text-slate-400">
-    A selection of projects I've developed while exploring full-stack
-    development, AI, backend systems, and real-world software solutions.
-  </p>
+    <p className="mt-5 leading-8 text-slate-400">
+      A selection of projects I've developed across full-stack development,
+      AI, backend systems, computer vision, and modern web applications.
+    </p>
+  </div>
 
-  {/* Project Cards */}
-
+  {/* Project Grid */}
   <div className="mt-12 grid gap-6 md:grid-cols-2">
 
-    {/* Project 1 */}
-    <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
-      <div className="flex items-start justify-between gap-4">
+    {/* Project 1 — AI Urban Change Detection */}
+    <article className="group flex h-full flex-col rounded-3xl border border-cyan-400/20 bg-cyan-400/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:bg-cyan-400/[0.05]">
+      
+      {/* Header */}
+      <div className="flex items-start justify-between gap-5">
         <div>
-          <p className="text-sm text-cyan-400">
+          <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-300">
             Featured Project
-          </p>
+          </span>
 
-          <h3 className="mt-2 text-2xl font-semibold">
+          <h3 className="mt-4 text-2xl font-semibold leading-tight">
             AI-Powered Urban Change Detection
           </h3>
         </div>
 
-        <span className="text-2xl text-cyan-400">
+        <span className="text-2xl text-cyan-400 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
           ↗
         </span>
       </div>
 
-      <p className="mt-5 leading-7 text-slate-400">
-        An AI-based urban change detection system using multi-sensor
-        remote sensing data. The project combines VHR, multispectral,
-        and SAR imagery to identify changes in urban environments.
+      {/* Description */}
+      <p className="mt-5 flex-1 leading-7 text-slate-400">
+        An AI-based urban change detection system using multi-sensor remote
+        sensing data. The project combines VHR, multispectral, and SAR imagery
+        to identify changes in urban environments.
       </p>
 
+      {/* Technologies */}
       <div className="mt-6 flex flex-wrap gap-2">
         {[
           "Python",
@@ -664,47 +680,49 @@ function App() {
         ].map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="mt-7 flex gap-4">
-      <a
-    href="#"
-    className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
-  >
-    Details
-  </a>
-</div>
-    </div>
+      {/* Footer */}
+      <div className="mt-7 border-t border-white/10 pt-5">
+        <p className="text-xs leading-5 text-slate-500">
+          Academic / research project
+        </p>
+      </div>
+    </article>
 
-    {/* Project 2 */}
-    <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
-      <div className="flex items-start justify-between gap-4">
+    {/* Project 2 — CRM AI Assistant */}
+    <article className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
+
+      {/* Header */}
+      <div className="flex items-start justify-between gap-5">
         <div>
-          <p className="text-sm text-cyan-400">
+          <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
             Full-Stack + AI
-          </p>
+          </span>
 
-          <h3 className="mt-2 text-2xl font-semibold">
+          <h3 className="mt-4 text-2xl font-semibold leading-tight">
             CRM AI Assistant
           </h3>
         </div>
 
-        <span className="text-2xl text-cyan-400">
+        <span className="text-2xl text-cyan-400 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
           ↗
         </span>
       </div>
 
-      <p className="mt-5 leading-7 text-slate-400">
-        A full-stack CRM application with an AI-powered assistant.
-        The system uses a FastAPI backend, React frontend, database
-        integration, and an LLM-based conversational interface.
+      {/* Description */}
+      <p className="mt-5 flex-1 leading-7 text-slate-400">
+        A full-stack CRM application with an AI-powered assistant. The system
+        uses a FastAPI backend, React frontend, database integration, and an
+        LLM-based conversational interface.
       </p>
 
+      {/* Technologies */}
       <div className="mt-6 flex flex-wrap gap-2">
         {[
           "React",
@@ -716,113 +734,119 @@ function App() {
         ].map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="mt-7 flex gap-4">
+      {/* Actions */}
+      <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
+        <span className="text-xs text-slate-500">
+          React + FastAPI
+        </span>
+
         <a
           href="https://github.com/brajeshdas117-pixel/crm-ai-assignment"
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
         </a>
-
-        <a
-          href="#"
-          className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
-        >
-          Details
-        </a>
       </div>
-    </div>
+    </article>
 
-    {/* Project 3 */}
-    <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
-      <div className="flex items-start justify-between gap-4">
+    {/* Project 3 — Smart Tatkal */}
+    <article className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
+
+      {/* Header */}
+      <div className="flex items-start justify-between gap-5">
         <div>
-          <p className="text-sm text-cyan-400">
+          <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
             Web Application
-          </p>
+          </span>
 
-          <h3 className="mt-2 text-2xl font-semibold">
+          <h3 className="mt-4 text-2xl font-semibold leading-tight">
             Smart Tatkal Booking System
           </h3>
         </div>
 
-        <span className="text-2xl text-cyan-400">
+        <span className="text-2xl text-cyan-400 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
           ↗
         </span>
       </div>
 
-      <p className="mt-5 leading-7 text-slate-400">
-        A modern booking interface designed with a responsive frontend
-        and optimized user experience. Built to demonstrate component-
-        based development and modern frontend architecture.
+      {/* Description */}
+      <p className="mt-5 flex-1 leading-7 text-slate-400">
+        A modern booking interface designed with a responsive frontend and
+        optimized user experience. Built to demonstrate component-based
+        development and modern frontend architecture.
       </p>
 
+      {/* Technologies */}
       <div className="mt-6 flex flex-wrap gap-2">
         {[
           "React",
           "JavaScript",
           "Tailwind CSS",
           "Vite",
-          "REST API",
         ].map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="mt-7 flex gap-4">
+      {/* Actions */}
+      <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
+        <span className="text-xs text-slate-500">
+          React + Tailwind
+        </span>
+
         <a
           href="https://github.com/brajeshdas117-pixel/tatkalpro-smart-booking-assistant"
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
         </a>
-
-        <a
-          href="#"
-          className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
-        >
-          Live Demo ↗
-        </a>
       </div>
-    </div>
+    </article>
 
-    {/* Project 4 */}
+    {/* Project 4 — Health Voice AI */}
+    <article className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
 
-    <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.05]">
-      <div className="flex items-start justify-between gap-4">
+      {/* Header */}
+      <div className="flex items-start justify-between gap-5">
         <div>
-          <p className="text-sm text-cyan-400">
+          <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
             AI + Full-Stack
-          </p>
+          </span>
 
-          <h3 className="mt-2 text-2xl font-semibold">
+          <h3 className="mt-4 text-2xl font-semibold leading-tight">
             Health Voice AI
           </h3>
         </div>
 
-        <span className="text-2xl text-cyan-400">
+        <span className="text-2xl text-cyan-400 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
           ↗
         </span>
       </div>
 
-      <p className="mt-5 leading-7 text-slate-400">
-        A conversational AI health screening application that enables users to interact through voice, answer screening questions, and receive intelligent, 
-        context-aware responses through an AI-powered workflow.
-
+      {/* Description */}
+      <p className="mt-5 flex-1 leading-7 text-slate-400">
+        A conversational AI health screening application that enables users
+        to interact through voice, answer screening questions, and receive
+        intelligent, context-aware responses through an AI-powered workflow.
       </p>
 
+      {/* Technologies */}
       <div className="mt-6 flex flex-wrap gap-2">
         {[
           "React",
@@ -834,58 +858,60 @@ function App() {
         ].map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+            className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="mt-7 flex gap-4">
+      {/* Actions */}
+      <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
+        <span className="text-xs text-slate-500">
+          AI + Voice Interface
+        </span>
+
         <a
           href="https://github.com/brajeshdas117-pixel/health-voice-ai"
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           GitHub ↗
         </a>
-
-        <a
-          href="#"
-          className="rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-white"
-        >
-          Details
-        </a>
       </div>
-    </div>
+    </article>
 
   </div>
 </section>
 
-        {/* Experience */}
+        {/* Experience Section */}
 <section
   id="experience"
   className="mx-auto max-w-6xl px-6 py-32"
 >
-  <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-    Experience
-  </p>
+  {/* Section Header */}
+  <div className="max-w-3xl">
+    <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+      Experience
+    </p>
 
-  <h2 className="mt-4 text-4xl font-bold tracking-tight">
-    My journey.
-  </h2>
+    <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+      My journey.
+    </h2>
 
-  <p className="mt-5 max-w-2xl leading-8 text-slate-400">
-    My experience across internships, software development, and
-    hands-on technical projects.
-  </p>
+    <p className="mt-5 leading-8 text-slate-400">
+      A combination of technical internships, research-oriented work,
+      and hands-on software development.
+    </p>
+  </div>
 
   {/* Timeline */}
   <div className="relative mt-14">
-
     {/* Timeline Line */}
     <div className="absolute left-3 top-2 h-[calc(100%-8px)] w-px bg-white/10 md:left-5" />
 
-    <div className="space-y-12">
+    <div className="space-y-10">
 
       {/* DRDO */}
       <div className="relative pl-10 md:pl-16">
@@ -894,11 +920,12 @@ function App() {
           <div className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.7)] md:h-3 md:w-3" />
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05]">
-          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <div className="rounded-3xl border border-cyan-400/20 bg-cyan-400/[0.03] p-7 transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/[0.05]">
+
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-sm font-medium text-cyan-400">
-                Internship
+              <p className="text-sm font-medium uppercase tracking-wide text-cyan-400">
+                Technical Internship
               </p>
 
               <h3 className="mt-2 text-2xl font-semibold">
@@ -906,38 +933,45 @@ function App() {
               </h3>
             </div>
 
-            <span className="w-fit rounded-full border border-white/10 bg-[#0b0f16] px-4 py-1.5 text-xs text-slate-400">
-              Technical Internship
+            <span className="w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-xs font-medium text-cyan-300">
+              Internship
             </span>
           </div>
 
-          <p className="mt-5 leading-7 text-slate-400">
-            Worked on image-based measurement and analysis tasks
-            involving high-speed camera techniques and thermal
-            imaging.
+          <p className="mt-5 max-w-3xl leading-7 text-slate-400">
+            Worked on image-based measurement and analysis tasks involving
+            high-speed camera techniques and thermal imaging.
           </p>
 
-          <div className="mt-6">
-            <p className="mb-3 text-sm font-medium text-slate-300">
+          {/* Work & Projects */}
+          <div className="mt-7">
+            <p className="mb-4 text-sm font-semibold text-slate-200">
               Work & Projects
             </p>
 
-            <ul className="space-y-2 text-sm leading-6 text-slate-400">
+            <ul className="space-y-3 text-sm leading-6 text-slate-400">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-                Spin measurement of a pedestal fan using a high-speed
-                camera.
+
+                <span>
+                  Spin measurement of a pedestal fan using a high-speed
+                  camera.
+                </span>
               </li>
 
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-                Surface temperature measurement of a heater using
-                image-based techniques.
+
+                <span>
+                  Surface temperature measurement of a heater using
+                  image-based techniques.
+                </span>
               </li>
             </ul>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          {/* Technologies */}
+          <div className="mt-7 flex flex-wrap gap-2">
             {[
               "Image Processing",
               "Computer Vision",
@@ -946,7 +980,7 @@ function App() {
             ].map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+                className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
               >
                 {tech}
               </span>
@@ -962,10 +996,11 @@ function App() {
           <div className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.7)] md:h-3 md:w-3" />
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05]">
-          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05]">
+
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-sm font-medium text-cyan-400">
+              <p className="text-sm font-medium uppercase tracking-wide text-cyan-400">
                 Online Internship
               </p>
 
@@ -974,18 +1009,19 @@ function App() {
               </h3>
             </div>
 
-            <span className="w-fit rounded-full border border-white/10 bg-[#0b0f16] px-4 py-1.5 text-xs text-slate-400">
+            <span className="w-fit rounded-full border border-white/10 bg-[#0b0f16] px-4 py-1.5 text-xs font-medium text-slate-400">
               20 Days
             </span>
           </div>
 
-          <p className="mt-5 leading-7 text-slate-400">
-            Completed a 20-day online internship focused on learning
-            and exploring technical concepts related to space
-            technology and engineering.
+          <p className="mt-5 max-w-3xl leading-7 text-slate-400">
+            Completed a 20-day online internship focused on learning and
+            exploring technical concepts related to space technology and
+            engineering.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          {/* Technologies / Areas */}
+          <div className="mt-7 flex flex-wrap gap-2">
             {[
               "Space Technology",
               "Engineering",
@@ -993,7 +1029,7 @@ function App() {
             ].map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300"
+                className="rounded-full border border-white/10 bg-[#0b0f16] px-3 py-1.5 text-xs text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
               >
                 {tech}
               </span>
@@ -1009,62 +1045,66 @@ function App() {
           <div className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.7)] md:h-3 md:w-3" />
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05]">
-          <p className="text-sm font-medium text-cyan-400">
-            Software Development
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05]">
+
+          <p className="text-sm font-medium uppercase tracking-wide text-cyan-400">
+            Independent Development
           </p>
 
           <h3 className="mt-2 text-2xl font-semibold">
             Full-Stack & AI Projects
           </h3>
 
-          <p className="mt-5 leading-7 text-slate-400">
-            Building practical software applications using Python,
-            React, FastAPI, Django, databases, and AI technologies.
-            Focused on developing complete applications from
-            frontend interfaces to backend APIs.
+          <p className="mt-5 max-w-3xl leading-7 text-slate-400">
+            Building practical software applications using Python, React,
+            FastAPI, Django, databases, and AI technologies. Focused on
+            developing complete applications from frontend interfaces to
+            backend APIs.
           </p>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-[#0b0f16] p-4">
-              <p className="text-sm font-medium text-slate-200">
+          {/* Development Areas */}
+          <div className="mt-7 grid gap-4 sm:grid-cols-2">
+
+            <div className="rounded-2xl border border-white/10 bg-[#0b0f16] p-5 transition hover:border-cyan-400/30">
+              <p className="text-sm font-semibold text-slate-200">
                 Backend
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-2 text-sm leading-6 text-slate-500">
                 Python · Django · FastAPI · REST APIs
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/10 bg-[#0b0f16] p-4">
-              <p className="text-sm font-medium text-slate-200">
+            <div className="rounded-2xl border border-white/10 bg-[#0b0f16] p-5 transition hover:border-cyan-400/30">
+              <p className="text-sm font-semibold text-slate-200">
                 Frontend
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
-                React · JavaScript · Tailwind CSS
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                React · JavaScript · HTML · CSS · Tailwind CSS
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/10 bg-[#0b0f16] p-4">
-              <p className="text-sm font-medium text-slate-200">
-                Database
+            <div className="rounded-2xl border border-white/10 bg-[#0b0f16] p-5 transition hover:border-cyan-400/30">
+              <p className="text-sm font-semibold text-slate-200">
+                Databases
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
-                MySQL · SQL · SQLAlchemy
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                MySQL · SQLAlchemy · Database Integration
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/10 bg-[#0b0f16] p-4">
-              <p className="text-sm font-medium text-slate-200">
-                AI
+            <div className="rounded-2xl border border-white/10 bg-[#0b0f16] p-5 transition hover:border-cyan-400/30">
+              <p className="text-sm font-semibold text-slate-200">
+                AI & APIs
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
-                LangChain · LLM Integration · Computer Vision
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                LLM Integration · REST APIs · AI Applications
               </p>
             </div>
+
           </div>
         </div>
       </div>
